@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-event-set-component@4.2.1/dist/aframe-event-set-component.min.js"></script> 
+    <script src="https://unpkg.com/aframe-proxy-event-component/dist/aframe-proxy-event-component.min.js"></script>
+    <script src="https://unpkg.com/aframe-look-at-component@0.8.0/dist/aframe-look-at-component.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
+    <script src="https://unpkg.com/aframe-websurfaces@1.4.0/dist/aframe-websurfaces.umd.js"></script>
+    <script src="https://rawgit.com/rdub80/aframe-gui/master/dist/aframe-gui.min.js"></script>
+    <script src="script.js"></script>
+    <title>Bagan Adat</title>
+</head>
+<body>
+    <a-scene>
+        <a-sky src="./img/img2.jpg" rotation="0 310 0"></a-sky>
+        <a-entity movement-controls="controls:checkpoint" checkpoint-controls="mode:teleport">
+            <a-camera id="cam" position="0 1.5 0">
+                <a-gui-cursor
+                    cursor="fuse:true; fusetimeout:2000;"
+                    design="ring"
+                    raycaster="objects:.bisaklik"
+                ></a-gui-cursor>
+            </a-camera>
+        </a-entity>
+
+        <a-text
+            value="ADAT ASLI PAPUA"
+            position="0 4 -3"
+            scale="3 3 3"
+            color="white"
+            align="center"
+            font="./Font/Cocogoose Pro-trial-msdf.json"
+            negate="false"
+        ></a-text>
+
+        <a-entity id="display"
+            geometry="primitive:box; width:9; height:4; depth:0.01"
+            material="color:#9F8772"
+            position="0 1.5 -3"
+            >
+            <a-entity id="adat1"
+                class="bisaklik"
+                geometry="primitive:box; width:1.5; height:1; depth:0.05"
+                material="color:#3C2317"
+                position="-3 1 0.07"
+                event-set__mouseenter="startEvents:mouseenter; scale: 1.1 1.1 1.1"
+                event-set__mouseleave="startEvents:mouseleave; scale: 1 1 1"
+                event-set__pindah="_event:click; _target:#cam; position:0 1.5 -13"
+            >
+                <a-entity id="pic1"
+                    geometry="primitive:plane; width:1.5; height:1"
+                    material="src:img/adat1.jpg"
+                    position="0 0 0.03"
+                ></a-entity>
+                <a-text id="text1"
+                    value="Upacara Bakar Batu"
+                    font="./font/Bainsley_Roman-msdf.json"
+                    negate="false"
+                    width="4"
+                    color="black"
+                    position="0 -0.7 0"
+                    align="center"
+                ></a-text>
+            </a-entity>
+
+            <a-entity id="adat2"
+                class="bisaklik"
+                geometry="primitive:box; width:1.5; height:1; depth:0.05"
+                material="color:#3C2317"
+                position="0 1 0.07"
+                event-set__mouseenter="startEvents:mouseenter; scale: 1.1 1.1 1.1"
+                event-set__mouseleave="startEvents:mouseleave; scale: 1 1 1"
+                event-set__pindah="_event:click; _target:#cam; position:0 1.5 -49999"
+                >
+                    <a-entity id="pic2"
+                        geometry="primitive:plane; width:1.5; height:1"
+                        material="src:img/adat2.jpg"
+                        position="0 0 0.03"
+                    ></a-entity>
+                    <a-text id="text2"
+                        value="Adat Potong Jari"
+                        font="./font/Bainsley_Roman-msdf.json"
+                        negate="false"
+                        width="4"
+                        color="black"
+                        position="0 -0.7 0"
+                        align="center"
+                    ></a-text>
+            </a-entity>
+                
+            <a-entity id="adat3"
+                class="bisaklik"
+                geometry="primitive:box; width:1.5; height:1; depth:0.05"
+                material="color:#3C2317"
+                position="3 1 0.07"
+                event-set__mouseenter="startEvents:mouseenter; scale: 1.1 1.1 1.1"
+                event-set__mouseleave="startEvents:mouseleave; scale: 1 1 1"
+                event-set__pindah="_event:click; _target:#cam; position:0 1.5 -49999"
+            >
+                <a-entity id="pic3"
+                    geometry="primitive:plane; width:1.5; height:1"
+                    material="src:img/adat3.jpg"
+                    position="0 0 0.03"
+                ></a-entity>
+                <a-text id="text3"
+                    value="Upacara WOR"
+                    font="./font/Bainsley_Roman-msdf.json"
+                    negate="false"
+                    width="4"
+                    color="black"
+                    position="0 -0.7 0"
+                    align="center"
+                ></a-text>
+            </a-entity>
+
+            <a-entity id="adat4"
+                class="bisaklik"
+                geometry="primitive:box; width:1.5; height:1; depth:0.05"
+                material="color:#3C2317"
+                position="3 -1 0.07"
+                event-set__mouseenter="startEvents:mouseenter; scale: 1.1 1.1 1.1"
+                event-set__mouseleave="startEvents:mouseleave; scale: 1 1 1"
+                event-set__pindah="_event:click; _target:#cam; position:0 1.5 -49999"
+            >
+                <a-entity id="pic4"
+                    geometry="primitive:plane; width:1.5; height:1"
+                    material="src:img/adat4.jpg"
+                    position="0 0 0.03"
+                ></a-entity>
+                <a-text id="text4"
+                    value="Tradisi Nasu Palek"
+                    font="./font/Bainsley_Roman-msdf.json"
+                    negate="false"
+                    width="4"
+                    color="black"
+                    position="0 -0.7 0"
+                    align="center"
+                ></a-text>
+            </a-entity>
+
+            <a-entity id="adat5"
+                class="bisaklik"
+                geometry="primitive:box; width:1.5; height:1; depth:0.05"
+                material="color:#3C2317"
+                position="0 -1 0.07"
+                event-set__mouseenter="startEvents:mouseenter; scale: 1.1 1.1 1.1"
+                event-set__mouseleave="startEvents:mouseleave; scale: 1 1 1"
+                event-set__pindah="_event:click; _target:#cam; position:0 1.5 -49999"
+            >
+                <a-entity id="pic5"
+                    geometry="primitive:plane; width:1.5; height:1"
+                    material="src:img/adat5.jpg"
+                    position="0 0 0.03"
+                ></a-entity>
+                <a-text id="text5"
+                    value="Tradisi Snap Mor"
+                    font="./font/Bainsley_Roman-msdf.json"
+                    negate="false"
+                    width="4"
+                    color="black"
+                    position="0 -0.7 0"
+                    align="center"
+                ></a-text>
+            </a-entity>
+
+            <a-entity id="adat6"
+                class="bisaklik"
+                geometry="primitive:box; width:1.5; height:1; depth:0.05"
+                material="color:#3C2317"
+                position="-3 -1 0.07"
+                event-set__mouseenter="startEvents:mouseenter; scale: 1.1 1.1 1.1"
+                event-set__mouseleave="startEvents:mouseleave; scale: 1 1 1"
+                event-set__pindah="_event:click; _target:#cam; position:0 1.5 -49998"
+            >
+                <a-entity id="pic6"
+                    geometry="primitive:plane; width:1.5; height:1"
+                    material="src:img/adat6.jpg"
+                    position="0 0 0.03"
+                ></a-entity>
+                <a-text id="text6"
+                    value="Tradisi Eri Era Tu Ura"
+                    font="./font/Bainsley_Roman-msdf.json"
+                    negate="false"
+                    width="4"
+                    color="black"
+                    position="0 -0.7 0"
+                    align="center"
+                ></a-text>
+            </a-entity>
+        </a-entity>
+                
+        <!-- ADAT 1 -->
+        <a-entity id="adat1"
+            geometry="primitive:box; width:5.5; height:3; depth:0.02"
+            material="color:#665A48"
+            position="0 1.5 -15"
+            >
+                <a-text
+                    value="Upacara Bakar Batu"
+                    align="center"
+                    font="./font/Bainsley_Roman-msdf.json"
+                    negate="false"
+                    position="0 1.2 0.1"
+                ></a-text>
+                <a-entity
+                    geometry="primitive:plane; width:5.5; height:3"
+                    scale="0.3 0.3 0.3"
+                    material="src:img/adat1.jpg"
+                    position="0 0.5 0.03"
+                ></a-entity>
+                <a-text
+                    width="4.5"
+                    value="Tujuan upacara ini adalah untuk menunjukkan rasa syukur, menyambut kebahagiaan atas kelahiran, kematian, atau dilakukan untuk mengumpulkan prajurit ketika berperang.
+
+                    Suku yang tinggalnya di daerah pegunungan terkenal dengan cara memasak mereka, yaitu dengan membakar batu. Inilah suku yang biasanya melakukan upacara Bakar Batu.
+                    
+                    Upacara unik ini tidak hanya memiliki satu sebutan, misalnya bagi masyarakat Paniai menyebutnya dengan Gapiia dan masyarakat Wamena menyebutnya dengan Kit Oba Isogoa."
+                    font="./font/Bainsley_Roman-msdf.json"
+                    negate="false"
+                    align="center"
+                    position="0 -0.6 0.1"
+                    wrap-count="100"
+                ></a-text>
+                <a-entity
+                    class="bisaklik"
+                    look-at="#cam"
+                    geometry="primitive:box; width:2; height:1; depth:0.01"
+                    material="color:red"
+                    position="0 4 0"
+                    event-set="_event:click; _target:#cam; position:0 1.5 0"
+                >
+                    <a-text
+                        value="Kembali"
+                        position="0 0 0.01"
+                        align="center"
+                        width="9"
+                        color="black"
+                    ></a-text>
+                </a-entity>
+        </a-entity>
+        <a-entity
+            class="bisaklik"
+            look-at="#cam"
+            geometry="primitive:box; width:2; height:1; depth:0.01"
+            material="color:red"
+            position="0 6 -3"
+            url="href:sapapua.html"
+        >
+            <a-text
+                value="Kembali"
+                position="0 0 0.01"
+                align="center"
+                width="9"
+                color="black"
+            ></a-text>
+        </a-entity>
+    </a-scene>
+</body>
+</html>

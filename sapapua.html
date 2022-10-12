@@ -1,0 +1,254 @@
+<!DOCTYPE php>
+<php lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>ZaPapua</title>
+        <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
+        <script src="https://unpkg.com/aframe-event-set-component@4.2.1/dist/aframe-event-set-component.min.js"></script> 
+        <script src="https://unpkg.com/aframe-proxy-event-component/dist/aframe-proxy-event-component.min.js"></script>
+        <script src="https://unpkg.com/aframe-look-at-component@0.8.0/dist/aframe-look-at-component.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
+        <script src="https://rawgit.com/rdub80/aframe-gui/master/dist/aframe-gui.min.js"></script>
+        <script src="script.js"></script>
+    </head>
+    <body>
+        <a-scene>
+            <a-sky src="./img/img2.jpg" rotation="0 310 0"></a-sky>
+
+            <!-- Camera & Gaze Control -->
+            <a-entity>
+                <a-camera id="cam" sound="src:Audio/BS Papua.mp3; autoplay: true; loop:true">
+                    <a-gui-cursor
+                        cursor="fuse:true; fusetimeout:2000" 
+                        design="ring"
+                        position="0 0 -0.9"
+                        raycaster="objects:.bisaklik"
+                    ></a-gui-cursor>
+                </a-camera>
+            </a-entity>
+            <a-mixin id="bagan-close" 
+                geometry="primitive:box; width:0.2; height:0.2; depth: 0.05"
+                material="color:red"
+            ></a-mixin>
+
+            <!-- TEXT SAPAPUA -->
+            <a-text
+                value="ZaPapua"
+                position="0 4 -3"
+                scale="3 3 3"
+                color="white"
+                align="center"
+                font="./Font/Cocogoose Pro-trial-msdf.json"
+                negate="false"
+            ></a-text>
+            <!-- BAGAN MAKANAN -->
+            <a-entity id="makanan"
+                class="bisaklik"
+                position="-2 0 -3"
+                geometry="primitive: box; height: 1.5; width: 2.5; depth: 0.05" 
+                material="color:pink"
+                animation__pos="property:position; to:0 1.5 -1.1; dur:1000; startEvents:click"
+                animation__close="property:position; to: -2 0 -3; dur:1000; startEvents:memanggilmakanan"
+                proxy-event__closemakanan="event:click; to:#close-makanan; as:memanggilclose"
+                raycaster-disp
+            >
+                    <!-- Tulisan bagan -->
+                    <a-entity
+                        geometry="primitive:plane; height:0.3; width: 1.5; depth: 0.01"
+                        position="0 0.5 0.2"
+                        material="color:#B1B2FF"
+                        text="value:Makanan;
+                        align:center;
+                        color:#181818;
+                        font:exo2bold;
+                        width:6"
+                    ></a-entity>
+                    <!-- Pindah halaman -->
+                    <a-entity id="makanan-url"
+                        material="color:#9F8772"
+                        class="bisaklik"
+                        url="href:sapapuamakanan.html"
+                        geometry="primitive:cylinder; height: 0.01; radius: 0.2"
+                        rotation="90 0 0"
+                        position="0.9 -0.4 0.05"
+                        event-set__mouseenter="startEvents:mouseenter; scale: 1.1 1.1 1.1"
+                        event-set__mouseleave="startEvents:mouseleave; scale: 1 1 1"
+                    ></a-entity>
+                    <!-- Box untuk gambar -->
+                    <a-entity id="boxGambar"
+                        geometry="primitive:plane; height: 1.5; width: 2.5;"
+                        position="0 0 0.05"
+                        material="src:img/aneka-makanan-khaspapua.jpg"
+                    ></a-entity>
+            </a-entity>
+            <!-- Close box -->
+            <a-entity 
+                id="close-makanan"
+                class="bisaklik"
+                mixin="bagan-close" 
+                position="-0.9 0.6 -2.95"
+                event-set__mouseenter="startEvents:mouseenter; scale: 1.2 1.2 1.2"
+                event-set__mouseleave="startEvents:mouseleave; scale: 1 1 1"
+                animation__pos="property:position; to:1.1 2.1 -1.05; dur:1000; startEvents:memanggilclose"
+                animation__close="property:position; to:-0.9 0.6 -2.95; dur:1000; startEvents:click"
+                proxy-event__closemakanan="event:click; to:#makanan; as:memanggilmakanan"
+                raycaster-add
+            ></a-entity>
+
+            <!-- BAGAN ADAT -->
+            <a-entity id="adat"
+                class="bisaklik"
+                position="2 0 -3"
+                geometry="primitive: box; height: 1.5; width: 2.5; depth: 0.05" 
+                material="color:pink"
+                animation__pos="property:position; to:0 1.5 -1.1; dur:1000; startEvents:click"
+                animation__close="property:position; to: 2 0 -3; dur:1000; startEvents:memanggiladat"
+                proxy-event__closeadat="event:click; to:#close-adat; as:memanggilclose"
+                raycaster-disp
+            >
+                <!-- Tulisan bagan -->
+                <a-entity
+                    geometry="primitive:plane; height:0.3; width: 1.5; depth: 0.01"
+                    position="0 0.5 0.2"
+                    material="color:#B1B2FF"
+                    text="value:Adat;
+                    align:center;
+                    color:#181818;
+                    font:exo2bold;
+                    width:6"
+                ></a-entity>
+                <!-- Pindah halaman -->
+                <a-entity id="makanan-url"
+                    material="color:#9F8772"
+                    class="bisaklik"
+                    url="href:sapapuaadat.html"
+                    geometry="primitive:cylinder; height: 0.01; radius: 0.2"
+                    rotation="90 0 0"
+                    position="0.9 -0.4 0.05"
+                    event-set__mouseenter="startEvents:mouseenter; scale: 1.1 1.1 1.1"
+                    event-set__mouseleave="startEvents:mouseleave; scale: 1 1 1"
+                    ></a-entity>
+                <!-- Box untuk gambar -->
+                <a-entity id="boxGambar"
+                    geometry="primitive:plane; height: 1.5; width: 2.5;"
+                    position="0 0 0.05"
+                    material="src:img/aneka-adat-khaspapua.jpg"></a-entity>
+            </a-entity>
+        <!-- Close box -->
+        <a-entity 
+            id="close-adat"
+            class="bisaklik"
+            mixin="bagan-close" 
+            position="3.1 0.6 -2.95"
+            event-set__mouseenter="startEvents:mouseenter; scale: 1.2 1.2 1.2"
+            event-set__mouseleave="startEvents:mouseleave; scale: 1 1 1"
+            animation__pos="property:position; to:1.1 2.1 -1.05; dur:1000; startEvents:memanggilclose"
+            animation__close="property:position; to:3.1 0.6 -2.95; dur:1000; startEvents:click"
+            proxy-event__closeadat="event:click; to:#adat; as:memanggiladat"
+            raycaster-add></a-entity>
+
+            <!-- BAGAN PARIWISATA -->
+            <a-entity id="pariwisata"
+                class="bisaklik"
+                position="-2 2 -3"
+                geometry="primitive: box; height: 1.5; width: 2.5; depth: 0.05" 
+                material="color:pink"
+                animation__pos="property:position; to:0 1.5 -1.1; dur:1000; startEvents:click"
+                animation__close="property:position; to: -2 2 -3; dur:1000; startEvents:memanggilpariwisata"
+                proxy-event__closepariwisata="event:click; to:#close-pariwisata; as:memanggilclosepariwisata"
+                raycaster-disp >
+                    <!-- Tulisan bagan -->
+                    <a-entity
+                        geometry="primitive:plane; height:0.3; width: 1.5; depth: 0.01"
+                        position="0 0.5 0.2"
+                        material="color:#B1B2FF"
+                        text="value:Pariwisata;
+                        align:center;
+                        color:#181818;
+                        font:exo2bold;
+                        width:6"
+                    ></a-entity>
+                    <!-- Pindah halaman -->
+                    <a-entity id="pariwisata-url"
+                        material="color:#9F8772"
+                        class="bisaklik"
+                        url="href:sapapuapariwisata.html"
+                        geometry="primitive:cylinder; height: 0.01; radius: 0.2"
+                        rotation="90 0 0"
+                        position="0.9 -0.4 0.05"
+                        event-set__mouseenter="startEvents:mouseenter; scale: 1.1 1.1 1.1"
+                        event-set__mouseleave="startEvents:mouseleave; scale: 1 1 1"
+                        ></a-entity>
+                    <!-- Box untuk gambar -->
+                    <a-entity id="boxGambar"
+                        geometry="primitive:plane; height: 1.5; width: 2.5;"
+                        position="0 0 0.05"
+                        material="src:img/aneka-pariwisata-khaspapua.jpg"></a-entity>
+                </a-entity>
+            <!-- Close box -->
+            <a-entity 
+                id="close-pariwisata"
+                class="bisaklik"
+                mixin="bagan-close" 
+                position="-0.9 2.6 -2.95"
+                event-set__mouseenter="startEvents:mouseenter; scale: 1.2 1.2 1.2"
+                event-set__mouseleave="startEvents:mouseleave; scale: 1 1 1"
+                animation__pos="property:position; to:1.1 2.1 -1.05; dur:1000; startEvents:memanggilclosepariwisata"
+                animation__close="property:position; to:-0.9 2.6 -2.95; dur:1000; startEvents:click"
+                proxy-event__closepariwisata="event:click; to:#pariwisata; as:memanggilpariwisata"   
+                raycaster-add></a-entity>
+
+            <!-- BAGAN TARIAN -->
+            <a-entity id="tarian"
+                class="bisaklik"
+                position="2 2 -3"
+                geometry="primitive:box; height:1.5; width:2.5; depth:0.05" 
+                material="color:pink"
+                animation__pos="property:position; to:0 1.5 -1.1; dur:1000; startEvents:click"
+                animation__close="property:position; to: 2 2 -3; dur:1000; startEvents:memanggiltarian"
+                proxy-event__closetarian="event:click; to:#close-tarian; as:memanggilclosetarian"
+                raycaster-disp >
+                    <!-- Tulisan bagan -->
+                    <a-entity
+                        geometry="primitive: plane; height: 0.3; width: 1.5; depth: 0.01"
+                        position="0 0.5 0.2"
+                        material="color: #B1B2FF"
+                        text="value: Tarian;
+                        align: center;
+                        color: #181818;
+                        font: exo2bold;
+                        width: 6"
+                    ></a-entity>
+                    <!-- Pindah halaman -->
+                    <a-entity id="tarian-url"
+                        material="color:#9F8772"
+                        class="bisaklik"
+                        url="href:sapapuatarian.html"
+                        geometry="primitive:cylinder; height:0.01; radius:0.2"
+                        rotation="90 0 0"
+                        position="0.9 -0.4 0.05"
+                        event-set__mouseenter="startEvents:mouseenter; scale: 1.1 1.1 1.1"
+                        event-set__mouseleave="startEvents:mouseleave; scale: 1 1 1"
+                        ></a-entity>
+                    <!-- Box untuk gambar -->
+                    <a-entity id="boxGambar"
+                        geometry="primitive:plane; height:1.5; width:2.5;"
+                        position="0 0 0.05"
+                        material="src:img/aneka-tarian-khaspapua.jpg"></a-entity>
+                </a-entity>
+            <!-- Close box -->
+            <a-entity 
+                id="close-tarian"
+                class="bisaklik"
+                mixin="bagan-close" 
+                position="3.1 2.6 -2.95"
+                event-set__mouseenter="startEvents:mouseenter; scale:1.2 1.2 1.2"
+                event-set__mouseleave="startEvents:mouseleave; scale:1 1 1"
+                animation__pos="property:position; to:1.1 2.1 -1.05; dur:1000; startEvents:memanggilclosetarian"
+                animation__close="property:position; to:3.1 2.6 -2.95; dur:1000; startEvents:click"
+                proxy-event__closetarian="event:click; to:#tarian; as:memanggiltarian"
+                raycaster-add></a-entity>
+        </a-scene>
+    </body>

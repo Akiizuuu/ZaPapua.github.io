@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-event-set-component@4.2.1/dist/aframe-event-set-component.min.js"></script> 
+    <script src="https://unpkg.com/aframe-proxy-event-component/dist/aframe-proxy-event-component.min.js"></script>
+    <script src="https://unpkg.com/aframe-look-at-component@0.8.0/dist/aframe-look-at-component.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
+    <script src="https://unpkg.com/aframe-websurfaces@1.4.0/dist/aframe-websurfaces.umd.js"></script>
+    <script src="https://rawgit.com/rdub80/aframe-gui/master/dist/aframe-gui.min.js"></script>
+    <script src="script.js"></script>
+    <title>Bagan Menu</title>
+</head>
+<body>
+    <a-scene>
+        <a-sky src="./img/img2.jpg" rotation="0 310 0"></a-sky>
+        <a-entity movement-controls="controls:checkpoint" checkpoint-controls="mode:teleport">
+            <a-camera id="cam" sound="src:Audio/BS Papua.mp3; autoplay: true; loop:true"
+            >
+                <a-gui-cursor
+                    cursor="fuse:true; fusetimeout:2000;"
+                    design="ring"
+                    raycaster="objects:.bisaklik"
+                ></a-gui-cursor>
+            </a-camera>
+        </a-entity>
+
+        <!-- Judul Bagan -->
+        <a-text
+            value="KULINER KHAS PAPUA"
+            position="0 4 -3"
+            scale="3 3 3"
+            color="white"
+            align="center"
+            font="./Font/Cocogoose Pro-trial-msdf.json"
+            negate="false"
+        ></a-text>
+
+        <!-- DISPLAY MENU -->
+        <a-entity id="display"
+            geometry="primitive:box; width:9; height:4; depth:0.01"
+            material="color:#9F8772"
+            position="0 1.5  -3"
+        >
+            <a-entity id="menu_1"
+                class="bisaklik"
+                geometry="primitive:box; width:1.5; height:1; depth:0.05"
+                material="color:#3C2317"
+                position="-3 1 0.07"
+                event-set__mouseenter="startEvents:mouseenter; scale: 1.1 1.1 1.1"
+                event-set__mouseleave="startEvents:mouseleave; scale: 1 1 1"
+                event-set__pindah="_event:click; _target:#cam; position:0 1.5 -13"
+            >
+                <a-entity id="pic1"
+                    geometry="primitive:plane; width:1.5; height:1"
+                    material="src:img/menu1.jpg"
+                    position="0 0 0.03"
+                ></a-entity>
+                <a-text id="text1"
+                    value="Papeda Kuah Kuning"
+                    font="./font/Bainsley_Roman-msdf.json"
+                    negate="false"
+                    width="4"
+                    color="black"
+                    position="0 -0.7 0"
+                    align="center"
+                ></a-text>
+            </a-entity>
+
+            <a-entity id="menu_2"
+                class="bisaklik"
+                geometry="primitive:box; width:1.5; height:1; depth:0.05"
+                material="color:#3C2317"
+                position="0 1 0.07"
+                event-set__mouseenter="startEvents:mouseenter; scale: 1.1 1.1 1.1"
+                event-set__mouseleave="startEvents:mouseleave; scale: 1 1 1"
+                event-set__pindah="_event:click; _target:#cam; position:-8 1.5 -13"
+            >
+                <a-entity id="pic2"
+                    geometry="primitive:plane; width:1.5; height:1"
+                    material="src:img/menu2.jpg"
+                    position="0 0 0.03"
+                ></a-entity>
+                <a-text id="text2"
+                    value="Abon Gulung"
+                    font="./font/Bainsley_Roman-msdf.json"
+                    negate="false"
+                    width="4"
+                    color="black"
+                    position="0 -0.7 0"
+                    align="center"
+                ></a-text>
+            </a-entity>
+                
+            <a-entity id="menu_3"
+                class="bisaklik"
+                geometry="primitive:box; width:1.5; height:1; depth:0.05"
+                material="color:#3C2317"
+                position="3 1 0.07"
+                event-set__mouseenter="startEvents:mouseenter; scale: 1.1 1.1 1.1"
+                event-set__mouseleave="startEvents:mouseleave; scale: 1 1 1"
+                event-set__pindah="_event:click; _target:#cam; position:8 1.5 -13"
+            >
+                <a-entity id="pic3"
+                    geometry="primitive:plane; width:1.5; height:1"
+                    material="src:img/menu3.jpg"
+                    position="0 0 0.03"
+                ></a-entity>
+                <a-text id="text3"
+                    value="Sagu Bakar"
+                    font="./font/Bainsley_Roman-msdf.json"
+                    negate="false"
+                    width="4"
+                    color="black"
+                    position="0 -0.7 0"
+                    align="center"
+                ></a-text>
+            </a-entity>
+
+            <a-entity id="menu_4"
+                class="bisaklik"
+                geometry="primitive:box; width:1.5; height:1; depth:0.05"
+                material="color:#3C2317"
+                position="3 -1 0.07"
+                event-set__mouseenter="startEvents:mouseenter; scale: 1.1 1.1 1.1"
+                event-set__mouseleave="startEvents:mouseleave; scale: 1 1 1"
+                event-set__pindah="_event:click; _target:#cam; position:16 1.5 -13"
+            >
+                <a-entity id="pic4"
+                    geometry="primitive:plane; width:1.5; height:1"
+                    material="src:img/menu4.jpg"
+                    position="0 0 0.03"
+                ></a-entity>
+                <a-text id="text4"
+                    value="Udang Selingkuh"
+                    font="./font/Bainsley_Roman-msdf.json"
+                    negate="false"
+                    width="4"
+                    color="black"
+                    position="0 -0.7 0"
+                    align="center"
+                ></a-text>
+            </a-entity>
+
+            <a-entity id="menu_5"
+                class="bisaklik"
+                geometry="primitive:box; width:1.5; height:1; depth:0.05"
+                material="color:#3C2317"
+                position="0 -1 0.07"
+                event-set__mouseenter="startEvents:mouseenter; scale: 1.1 1.1 1.1"
+                event-set__mouseleave="startEvents:mouseleave; scale: 1 1 1"
+                event-set__pindah="_event:click; _target:#cam; position:0 1.5 -49999"
+            >
+                <a-entity id="pic5"
+                    geometry="primitive:plane; width:1.5; height:1"
+                    material="src:img/menu5.jpg"
+                    position="0 0 0.03"
+                ></a-entity>
+                <a-text id="text5"
+                    value="Sagu Lempeng"
+                    font="./font/Bainsley_Roman-msdf.json"
+                    negate="false"
+                    width="4"
+                    color="black"
+                    position="0 -0.7 0"
+                    align="center"
+                ></a-text>
+            </a-entity>
+
+            <a-entity id="menu_6"
+                class="bisaklik"
+                geometry="primitive:box; width:1.5; height:1; depth:0.05"
+                material="color:#3C2317"
+                position="-3 -1 0.07"
+                event-set__mouseenter="startEvents:mouseenter; scale: 1.1 1.1 1.1"
+                event-set__mouseleave="startEvents:mouseleave; scale: 1 1 1"
+                event-set__pindah="_event:click; _target:#cam; position:0 1.5 -49999"
+            >
+                <a-entity id="pic6"
+                    geometry="primitive:plane; width:1.5; height:1"
+                    material="src:img/menu6.jpg"
+                    position="0 0 0.03"
+                ></a-entity>
+                <a-text id="text6"
+                    value="Papeda Gulung"
+                    font="./font/Bainsley_Roman-msdf.json"
+                    negate="false"
+                    width="4"
+                    color="black"
+                    position="0 -0.7 0"
+                    align="center"
+                ></a-text>
+            </a-entity>
+        </a-entity>
+
+        <!-- MENU 1 -->
+        <a-entity id="menu1"
+            geometry="primitive:box; height: 2.4; width: 5; depth:0.05;"
+            material="color:#665A48"
+            position="0 1.5 -15"
+            material="shader: flat; src: #pic01; opacity: 1"
+        >
+            <!-- Box Gambar -->
+            <a-entity id="gambar1"
+                geometry="primitive:plane; width:2; height:1; side:double"
+                position="-1 0.2 0.03"
+                material="src:img/menu1.jpg"
+            ></a-entity>
+
+            <!-- Tulisan Harga-->
+            <a-entity
+                text="value:Harga \n Rp.90.000,00; color: black; align:center; width:5; font:font/Bainsley_Roman-msdf.json; negate:false"
+                position="1 0.2 0.03"
+            ></a-entity>
+
+            <!-- Tulisan satuan-->
+            <a-entity
+                text="value:Satuan: ; color: black; align:center; width:2; font:font/Bainsley_Roman-msdf.json; negate:false"
+                position="-1 -0.5 0.03"
+            ></a-entity>
+
+            <!-- Judul Menu 1 -->
+            <a-entity
+                text="value:Papeda Kuah Kuning; color: black; align:center; width:5; font:font/Bainsley_Roman-msdf.json; negate:false"
+                position="0 1 0.03"
+            ></a-entity>
+
+            <!-- Sistem Inc_Dec_rementer -->
+            <a-entity id="naikkan-satuan-menu1"
+                class="bisaklik"
+                geometry="primitive:triangle"
+                scale="0.09 0.09 0.09"
+                position="-0.58 -0.44 0.03"
+                material="color:white; side:double"
+                incrementer-menu1
+            ></a-entity>
+
+            <a-text id="jumlah-pembelian-menu1"
+                display-menu1
+                width="2.5"
+                geometry="primitive:plane; width:0.15; height:0.15"
+                material="color:white"
+                value= "contoh"
+                color="black"
+                align="center"
+                position="-0.75 -0.5 0.03"
+            ></a-text>
+
+            <a-entity id="turunkan-satuan-menu1"
+                class="bisaklik"
+                geometry="primitive:triangle"
+                rotation="0 0 180"
+                scale="0.09 0.09 0.09"
+                position="-0.58 -0.56 0.03"
+                material="color:white; side:double"
+                decrementer-menu1
+            ></a-entity>
+
+            <!-- Box Beli -->
+            <a-entity id="buy-button-menu1"
+                class="bisaklik"
+                text="value:Beli!; align:center; color:black; width: 2; font:font/Bainsley_Roman-msdf.json; negate:false"
+                geometry="primitive:plane; height:0.3 ; width:0.5"
+                position="1.5 -0.5 0.03"
+                material="color:white; side:double"
+                event-set__mouseenter="startEvents:mouseenter; scale: 1.1 1.1 1.1"
+                event-set__mouseleave="startEvents:mouseleave; scale: 1 1 1"
+            ></a-entity>
+
+            <!-- Box Lokasi -->
+            <a-entity id="loc-menu1"
+                class="bisaklik"
+                geometry="primitive:box; width:0.5; height:0.2; depth:0.01"
+                material="color:white"
+                position="-1.5 -0.9 0.07"
+                event-set__mouseenter="startEvents:mouseenter; scale: 1.1 1.1 1.1"
+                event-set__mouseleave="startEvents:mouseleave; scale: 1 1 1"
+                event-set__tertekan="_event:click; position:0 1.5 -32; _target:#cam"
+            >
+                <a-text
+                    value="Lokasi"
+                    align="center"
+                    font="./font/Bainsley_Roman-msdf.json"
+                    negate="false"
+                    scale="0.5 0.5 0.5"
+                    position="0 0 0.01"
+                    color="black"
+                ></a-text>
+            </a-entity>
+
+            <!-- Box Back -->
+            <a-entity id="back-box"
+                class="bisaklik"
+                geometry="primitive:box; width:1; height:0.5; depth:0.01"
+                position="0 3 0"
+                rotation="45 0 0"
+                material="color:red"
+                event-set="_event:click; position:0 1.5 0; _target:#cam"
+            >
+                <a-text id="text-back"
+                    value="Kembali"
+                    align="center"
+                    position="0 0 0.01"
+                    color="black"
+                ></a-text>
+            </a-entity>
+
+            <!-- Detail Lokasi -->
+            <a-entity id="detail_loc1"
+                websurface="url:https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31914.633153431336!2d131.29225521713383!3d-0.8972183581104183!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2d59553f0ea84305%3A0xf06b0978fb75d6f1!2sJESONE%20Hotel%20%26%20Resto!5e0!3m2!1sid!2sid!4v1665409669938!5m2!1sid!2sid; width:4; height:2;"
+                position="0 0 -20"
+            ></a-entity>
+
+            <!-- Box back -->
+            <a-entity id="back-box"
+                class="bisaklik"
+                geometry="primitive:box; width:1; height:0.5; depth:0.01"
+                position="0 3 -20"
+                rotation="45 0 0"
+                material="color:red"
+                event-set="_event:click; position:-8 1.5 -13; _target:#cam"
+            >
+                <a-text id="text-back"
+                    value="Kembali"
+                    align="center"
+                    position="0 0 0.01"
+                    color="black"
+                ></a-text>
+            </a-entity>
+        </a-entity>
+
+
+
+        <!-- MENU 2 -->
+        <a-entity id="menu2"
+            geometry="primitive:box; height: 2.4; width: 5; depth:0.05"
+            material="color:#665A48"
+            position="-8 1.5 -15"
+        >
+            <!-- Box Gambar -->
+            <a-entity id="gambar2"
+                geometry="primitive:plane; width:2; height:1; side:double"
+                position="-1 0.2 0.03"
+                material="src:img/menu2.jpg"
+            ></a-entity>
+
+            <!-- Tulisan Harga-->
+            <a-entity
+                text="value:Harga \n Rp.60.000,00; color: black; align:center; width:5; font:font/Bainsley_Roman-msdf.json; negate:false"
+                position="1 0.2 0.03"
+            ></a-entity>
+
+            <!-- Judul Makanan -->
+            <a-entity
+                text="value:Abon Gulung; color: black; align:center; width:5; font:font/Bainsley_Roman-msdf.json; negate:false"
+                position="0 1 0.03"
+                font="./font/Bainsley_Roman-msdf.json"
+                negate="false"
+            ></a-entity>
+
+            <!-- Struktur Satuan -->
+            <a-entity
+                text="value:Satuan: ; color: black; align:center; width:2; font:font/Bainsley_Roman-msdf.json; negate:false"
+                position="-1 -0.5 0.03"
+            ></a-entity>
+
+            <!-- Sistem Inc_Dec_rementer -->
+            <a-entity id="naikkan-satuan-menu2"
+                class="bisaklik"
+                geometry="primitive:triangle"
+                scale="0.09 0.09 0.09"
+                position="-0.58 -0.44 0.03"
+                material="color:white; side:double"
+                incrementer-menu2
+            ></a-entity>
+
+            <a-text id="jumlah-pembelian-menu2"
+                display-menu2
+                width="2.5"
+                geometry="primitive:plane; width:0.15; height:0.15"
+                material="color:white"
+                value= "contoh"
+                color="black"
+                align="center"
+                position="-0.75 -0.5 0.03"
+            ></a-text>
+
+            <a-entity id="turunkan-satuan-menu2"
+                class="bisaklik"
+                geometry="primitive:triangle"
+                rotation="0 0 180"
+                scale="0.09 0.09 0.09"
+                position="-0.58 -0.56 0.03"
+                material="color:white; side:double"
+                decrementer-menu2
+            ></a-entity>
+
+            <!-- Box Beli -->
+            <a-entity id="buy-button-menu2"
+                class="bisaklik"
+                text="value:Beli!; align:center; color:black; width: 2; font:font/Bainsley_Roman-msdf.json; negate:false"
+                geometry="primitive:plane; height:0.3 ; width:0.5"
+                position="1.5 -0.5 0.03"
+                material="color:white; side:double"
+                event-set__mouseenter="startEvents:mouseenter; scale: 1.1 1.1 1.1"
+                event-set__mouseleave="startEvents:mouseleave; scale: 1 1 1"
+            ></a-entity>
+
+            <!-- Box Lokasi -->
+            <a-entity id="loc-menu2"
+                class="bisaklik"
+                geometry="primitive:box; width:0.5; height:0.2; depth:0.01"
+                material="color:white"
+                position="-1.5 -0.9 0.07"
+                event-set__mouseenter="startEvents:mouseenter; scale: 1.1 1.1 1.1"
+                event-set__mouseleave="startEvents:mouseleave; scale: 1 1 1"
+                event-set__tertekan="_event:click; position:-8 1.5 -32; _target:#cam"
+            >
+                <a-text
+                    value="Lokasi"
+                    align="center"
+                    font="./font/Bainsley_Roman-msdf.json"
+                    negate="false"
+                    scale="0.5 0.5 0.5"
+                    position="0 0 0.01"
+                    color="black"
+                ></a-text>
+            </a-entity>
+
+            <!-- Box Back -->
+            <a-entity id="back-box"
+                class="bisaklik"
+                geometry="primitive:box; width:1; height:0.5; depth:0.01"
+                position="0 3 0"
+                rotation="45 0 0"
+                material="color:red"
+                event-set="_event:click; position:0 1.5 0; _target:#cam"
+            >
+                <a-text id="text-back"
+                    value="Kembali"
+                    align="center"
+                    position="0 0 0.01"
+                    color="black"
+                ></a-text>
+            </a-entity>
+
+            <!-- Detail Lokasi -->
+            <a-entity id="detail_loc2"
+                websurface="url:https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.3454143324448!2d131.2829533!3d-0.8821709999999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2d595561ad6569b1%3A0x6527331710fa4bee!2sAbon%20Gulung%20PAWAI%20(%20Papua%20Manokwari%20Hawai%20Bakery%20)!5e0!3m2!1sen!2sid!4v1665571865178!5m2!1sen!2sid; width:4; height:2;"
+                position="0 0 -20"
+            ></a-entity>
+
+            <!-- Box back -->
+            <a-entity id="back-box"
+                class="bisaklik"
+                geometry="primitive:box; width:1; height:0.5; depth:0.01"
+                position="0 3 -20"
+                rotation="45 0 0"
+                material="color:red"
+                event-set="_event:click; position:-8 1.5 -13; _target:#cam"
+            >
+                <a-text id="text-back"
+                    value="Kembali"
+                    align="center"
+                    position="0 0 0.01"
+                    color="black"
+                ></a-text>
+            </a-entity>
+        </a-entity>
+
+
+
+        <!-- Menu 3 -->
+        <a-entity id="menu3"
+            geometry="primitive:box; height: 2.4; width: 5; depth:0.05"
+            material="color:#665A48"
+            position="8 1.5 -15"
+        >
+            <!-- Box Gambar -->
+            <a-entity id="gambar3"
+                geometry="primitive:plane; width:2; height:1; side:double"
+                position="-1 0.2 0.03"
+                material="src:img/menu3.jpg"
+            ></a-entity>
+
+            <!-- Tulisan Harga-->
+            <a-entity
+                text="value:Harga \n Rp.16.000,00; color: black; align:center; width:5; font:font/Bainsley_Roman-msdf.json; negate:false"
+                position="1 0.2 0.03"
+            ></a-entity>
+
+            <!-- Judul Makanan -->
+            <a-entity
+                text="value:Sagu Bakar; color: black; align:center; width:5; font:font/Bainsley_Roman-msdf.json; negate:false"
+                position="0 1 0.03"
+            ></a-entity>
+
+            <!-- Struktur Satuan -->
+            <a-entity
+                text="value:Satuan: ; color: black; align:center; width:2; font:font/Bainsley_Roman-msdf.json; negate:false"
+                position="-1 -0.5 0.03"
+            ></a-entity>
+
+            <!-- Sistem Inc_Dec_rementer -->
+            <a-entity id="naikkan-satuan-menu2"
+                class="bisaklik"
+                geometry="primitive:triangle"
+                scale="0.09 0.09 0.09"
+                position="-0.58 -0.44 0.03"
+                material="color:white; side:double"
+                incrementer-menu2
+            ></a-entity>
+
+            <a-text id="jumlah-pembelian-menu2"
+                display-menu2
+                width="2.5"
+                geometry="primitive:plane; width:0.15; height:0.15"
+                material="color:white"
+                value= "contoh"
+                color="black"
+                align="center"
+                position="-0.75 -0.5 0.03"
+            ></a-text>
+
+            <a-entity id="turunkan-satuan-menu2"
+                class="bisaklik"
+                geometry="primitive:triangle"
+                rotation="0 0 180"
+                scale="0.09 0.09 0.09"
+                position="-0.58 -0.56 0.03"
+                material="color:white; side:double"
+                decrementer-menu2
+            ></a-entity>
+            
+            <!-- Box Beli -->
+            <a-entity id="buy-button-menu2"
+                class="bisaklik"
+                text="value:Beli!; align:center; color:black; width: 2; font:font/Bainsley_Roman-msdf.json; negate:false"
+                geometry="primitive:plane; height:0.3 ; width:0.5"
+                position="1.5 -0.5 0.03"
+                material="color:white; side:double"
+                event-set__mouseenter="startEvents:mouseenter; scale: 1.1 1.1 1.1"
+                event-set__mouseleave="startEvents:mouseleave; scale: 1 1 1"
+            ></a-entity>
+
+            <!-- Box Lokasi -->
+            <a-entity id="loc-menu3"
+                class="bisaklik"
+                geometry="primitive:box; width:0.5; height:0.2; depth:0.01"
+                material="color:white"
+                position="-1.5 -0.9 0.07"
+                event-set__mouseenter="startEvents:mouseenter; scale: 1.1 1.1 1.1"
+                event-set__mouseleave="startEvents:mouseleave; scale: 1 1 1"
+                event-set__tertekan="_event:click; position:0 1.5 -32; _target:#cam"
+            >
+                <a-text
+                    value="Lokasi"
+                    align="center"
+                    font="./font/Bainsley_Roman-msdf.json"
+                    negate="false"
+                    scale="0.5 0.5 0.5"
+                    position="0 0 0.01"
+                    color="black"
+                ></a-text>
+            </a-entity>
+
+            <!-- Box Back -->
+            <a-entity id="back-box"
+                class="bisaklik"
+                geometry="primitive:box; width:1; height:0.5; depth:0.01"
+                position="0 3 0"
+                rotation="45 0 0"
+                material="color:red"
+                event-set="_event:click; position:0 1.5 0; _target:#cam"
+            >
+                <a-text id="text-back"
+                    value="Kembali"
+                    align="center"
+                    position="0 0 0.01"
+                    color="black"
+                ></a-text>
+            </a-entity>
+
+            <!-- Detail Lokasi -->
+            <a-entity id="detail_loc3"
+                websurface="url:https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11681.440979452831!2d131.32314085129153!3d-0.8967766105160407!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2d59559d0e7c5b49%3A0xef3c96601044ea95!2sPolsek%20Sorong%20Timur!5e0!3m2!1sid!2sid!4v1665580445084!5m2!1sid!2sid width:4; height:2;"
+                position="8 0 -20"
+            ></a-entity>
+
+            <!-- Box back -->
+            <a-entity id="back-box"
+                class="bisaklik"
+                geometry="primitive:box; width:1; height:0.5; depth:0.01"
+                position="8 3 -20"
+                rotation="45 0 0"
+                material="color:red"
+                event-set="_event:click; position:8 1.5 -13; _target:#cam"
+            >
+                <a-text id="text-back"
+                    value="Kembali"
+                    align="center"
+                    position="0 0 0.01"
+                    color="black"
+                ></a-text>
+            </a-entity>
+        </a-entity>
+    </a-scene>
+</body>
+</html>

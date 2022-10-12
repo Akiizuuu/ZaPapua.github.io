@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="dddhttps://aframe.io/releases/1.3.0/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-event-set-component@4.2.1/dist/aframe-event-set-component.min.js"></script> 
+    <script src="https://unpkg.com/aframe-proxy-event-component/dist/aframe-proxy-event-component.min.js"></script>
+    <script src="https://unpkg.com/aframe-look-at-component@0.8.0/dist/aframe-look-at-component.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
+    <script src="https://rawgit.com/rdub80/aframe-gui/master/dist/aframe-gui.min.js"></script>
+    <script src="script.js"></script>
+    <title>Bagan tarian</title>
+</head>
+<body>
+    <a-scene>
+        <a-sky src="./img/img2.jpg" rotation="0 310 0"></a-sky>
+        <a-entity movement-controls="controls:checkpoint" checkpoint-controls="mode:teleport">
+            <a-camera id="cam">
+                <a-gui-cursor 
+                    cursor="fuse:true; fusetimeout:2000;"
+                    design="ring"
+                    raycaster="objects:.bisaklik"
+                ></a-gui-cursor>
+            </a-camera>
+        </a-entity>
+        <a-text
+            value="TARIAN ASLI PAPUA"
+            position="0 4 -3"
+            scale="3 3 3"
+            color="white"
+            align="center"
+            font="./Font/Cocogoose Pro-trial-msdf.json"
+            negate="false"
+        ></a-text>
+
+        <a-entity id="display"
+            geometry="primitive:box; width:9; height:4; depth:0.01"
+            material="color:#9F8772"
+            position="0 1.5 -3"
+        >
+            <a-entity id="tari1"
+                class="bisaklik"
+                geometry="primitive:box; width:1.5; height:1; depth:0.05"
+                material="color:#3C2317"
+                position="-3 1 0.07"
+                event-set__mouseenter="startEvents:mouseenter; scale: 1.1 1.1 1.1"
+                event-set__mouseleave="startEvents:mouseleave; scale: 1 1 1"
+                url="href:tariansajojo.html"
+            >
+                <a-entity id="dest1"
+                    geometry="primitive:plane; width:1.5; height:1"
+                    material="src:img/tari1.jpg"
+                    position="0 0 0.03"
+                ></a-entity>
+                <a-text id="text1"
+                    value="Tarian Sajojo"
+                    font="./font/Bainsley_Roman-msdf.json"
+                    negate="false"
+                    width="4"
+                    color="black"
+                    position="0 -0.7 0"
+                    align="center"
+                ></a-text>
+            </a-entity>
+
+            <a-entity id="tari2"
+                class="bisaklik"
+                geometry="primitive:box; width:1.5; height:1; depth:0.05"
+                material="color:#3C2317"
+                position="0 1 0.07"
+                event-set__mouseenter="startEvents:mouseenter; scale: 1.1 1.1 1.1"
+                event-set__mouseleave="startEvents:mouseleave; scale: 1 1 1"
+                event-set__pindah="_event:click; _target:#cam; position:0 1.5 -49999"
+            >
+                    <a-entity id="dest2"
+                        geometry="primitive:plane; width:1.5; height:1"
+                        material="src:img/tari2.jpg"
+                        position="0 0 0.03"
+                    ></a-entity>
+                    <a-text id="text2"
+                        value="Tarian Arini"
+                        font="./font/Bainsley_Roman-msdf.json"
+                        negate="false"
+                        width="4"
+                        color="black"
+                        position="0 -0.7 0"
+                        align="center"
+                    ></a-text>
+            </a-entity>
+                
+            <a-entity id="tari3"
+                class="bisaklik"
+                geometry="primitive:box; width:1.5; height:1; depth:0.05"
+                material="color:#3C2317"
+                position="3 1 0.07"
+                event-set__mouseenter="startEvents:mouseenter; scale: 1.1 1.1 1.1"
+                event-set__mouseleave="startEvents:mouseleave; scale: 1 1 1"
+                event-set__pindah="_event:click; _target:#cam; position:0 1.5 -49999"
+            >
+                <a-entity id="pic3"
+                    geometry="primitive:plane; width:1.5; height:1"
+                    material="src:img/tari3.jpg"
+                    position="0 0 0.03"
+                ></a-entity>
+                <a-text id="text3"
+                    value="Tarian Seka"
+                    font="./font/Bainsley_Roman-msdf.json"
+                    negate="false"
+                    width="4"
+                    color="black"
+                    position="0 -0.7 0"
+                    align="center"
+                ></a-text>
+            </a-entity>
+
+            <a-entity id="tari4"
+                class="bisaklik"
+                geometry="primitive:box; width:1.5; height:1; depth:0.05"
+                material="color:#3C2317"
+                position="3 -1 0.07"
+                event-set__mouseenter="startEvents:mouseenter; scale: 1.1 1.1 1.1"
+                event-set__mouseleave="startEvents:mouseleave; scale: 1 1 1"
+                event-set__pindah="_event:click; _target:#cam; position:0 1.5 -49999"
+            >
+                <a-entity id="pic4"
+                    geometry="primitive:plane; width:1.5; height:1"
+                    material="src:img/tari4.jpg"
+                    position="0 0 0.03"
+                ></a-entity>
+                <a-text id="text4"
+                    value="Tarian Afaitaneng"
+                    font="./font/Bainsley_Roman-msdf.json"
+                    negate="false"
+                    width="4"
+                    color="black"
+                    position="0 -0.7 0"
+                    align="center"
+                ></a-text>
+            </a-entity>
+
+            <a-entity id="tari5"
+                class="bisaklik"
+                geometry="primitive:box; width:1.5; height:1; depth:0.05"
+                material="color:#3C2317"
+                position="0 -1 0.07"
+                event-set__mouseenter="startEvents:mouseenter; scale: 1.1 1.1 1.1"
+                event-set__mouseleave="startEvents:mouseleave; scale: 1 1 1"
+                event-set__pindah="_event:click; _target:#cam; position:0 1.5 -49999"
+            >
+                <a-entity id="pic5"
+                    geometry="primitive:plane; width:1.5; height:1"
+                    material="src:img/tari5.jpg"
+                    position="0 0 0.03"
+                ></a-entity>
+                <a-text id="text5"
+                    value="Tarian Selamat Datang"
+                    font="./font/Bainsley_Roman-msdf.json"
+                    negate="false"
+                    width="4"
+                    color="black"
+                    position="0 -0.7 0"
+                    align="center"
+                ></a-text>
+            </a-entity>
+
+            <a-entity id="tari6"
+                class="bisaklik"
+                geometry="primitive:box; width:1.5; height:1; depth:0.05"
+                material="color:#3C2317"
+                position="-3 -1 0.07"
+                event-set__mouseenter="startEvents:mouseenter; scale: 1.1 1.1 1.1"
+                event-set__mouseleave="startEvents:mouseleave; scale: 1 1 1"
+                event-set__pindah="_event:click; _target:#cam; position:0 1.5 -49999">
+                <a-entity id="pic6"
+                    geometry="primitive:plane; width:1.5; height:1"
+                    material="src:img/tari6.jpg"
+                    position="0 0 0.03"
+                ></a-entity>
+                <a-text id="text6"
+                    value="Tarian Falabea"
+                    font="./font/Bainsley_Roman-msdf.json"
+                    negate="false"
+                    width="4"
+                    color="black"
+                    position="0 -0.7 0"
+                    align="center"
+                ></a-text>
+            </a-entity>
+        </a-entity>
+        
+        <!-- Box-Back -->
+        <a-entity id="back-box"
+            class="bisaklik"
+            look-at="#cam"
+            geometry="primitive:box; width:1; height:0.5; depth:0.01"
+            position="0 5 -1"
+            material="color:red"
+            url="href:sapapua.html"
+        >
+            <a-text id="text-back"
+                value="Kembali"
+                align="center"
+                position="0 0 0.01"
+                color="black"
+            ></a-text>
+        </a-entity>
+    </a-scene>
+</body>
+</html>
